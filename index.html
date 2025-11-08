@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestión de Compras</title>
+    
+    <!-- PWA -->
+    <link rel="manifest" href="./manifest.json" />
+    <meta name="theme-color" content="#d946ef" />
+    <link rel="apple-touch-icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSI5NiIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyXzFfMikiLz48cGF0aCBkPSJNMTc1Ljc2IDEzOC42NjdDMTc1Ljc2IDExNC42MTkgMTk1LjExMSA5NS4yNjY2IDIxOS4xNiA5NS4yNjY2SDI5Mi44NEMzMTYuODg5IDk1LjI2NjYgMzM2LjI0IDExNC42MTkgMzM2LjI0IDEzOC42NjciIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIvPjxwYXRoIGQ9Ik0xNDEuNCAxNzkuNzMzSDM3MC42QzM4My42NTUgMTc5LjczMyAzOTQuNCAxOTAuNDc4IDM5NC40IDIwMy41MzNWMzYyLjRDMTk0LjQgMzkxLjg3OSAzNjkuNjc5IDQxNi42IDM0MC4yIDQxNi42SDE3MS44QzE0Mi4zMjEgNDE2LjYgMTE3LjYgMzkxLjg3OSAxMTcuNiAzNjIuNFYyMDMuNTMzQzExNy42IDE5MC40NzggMTI4LjM0NSAxNzkuNzMzIDE0MS40IDE3OS43MzNaIiBmaWxsPSJ3aGl0ZSIgZmlsbC1vcGFjaXR5PSIwLjIiLz48cGF0aCBkPSJNMjU2IDMyOC41MzNDMjgwLjQgMzA5LjA2NyAzMDQuOCAyODkuNiAzMDQuOCAyNjIuOEMzMDQuOCAyNDMuODY3IDI4OS4wNjcgMjI4LjEzMyAyNzAuMTMzIDIyOC4xMzNDMjYwLjY2NyAyMjguMTMzIDI1Mi4xMzMgMjMyLjQgMjQ2LjQgMjM4LjY2N0wyNTYgMjUwLjhMMjY1LjYgMjM4LjY2N0MyNTkuODY3IDIzMi40IDI1MS4zMzMgMjI4LjEzMyAyNDEuODY3IDIyOC4xMzNDMjIyLjkzMyAyMjguMTMzIDIwNy4yIDI0My44NjcgMjA3LjIgMjYyLjhDMjA3LjIgMjg5LjYgMjMxLjYgMzA5LjA2NyAyNTYgMzI4LjUzM1oiIGZpbGw9IndoaXRlIi8+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyXzFfMiIgeDE9IjAiIHkxPSIwIiB4Mj0iNTEyIiB5Mj0iNTEyIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHN0b3Agc3RvcC1jb2xvcj0iI0Y0NzJCNiIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI0E3OEJGQSIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjwvc3ZnPg==">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Added Babel Standalone for in-browser JSX/TS transpilation -->
+    <script src="https://unpkg.com/@babel/standalone@7.24.9/babel.min.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "firebase/": "https://aistudiocdn.com/firebase@^12.2.1/"
+  }
+}
+</script>
+</head>
+<body class="bg-gray-100">
+    <div id="root"></div>
+    <!-- Added data-presets to tell Babel how to transpile React (JSX) and TypeScript -->
+    <script type="text/babel" data-presets="react,typescript" data-type="module" src="./index.tsx"></script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js').then(registration => {
+              console.log('SW registered: ', registration);
+            }).catch(registrationError => {
+              console.log('SW registration failed: ', registrationError);
+            });
+          });
+        }
+    </script>
+</body>
+</html>
